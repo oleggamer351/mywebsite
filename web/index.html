@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="shortcut icon" href="images/icon.png" />
+    <title>сайт Cotarya228</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<audio controls> <source src="audio_tag/Blank%20Shell.mp3"> Тег audio не поддерживается вашим браузером. <a href="music/Blank%20Shell.mp3">Скачайте музыку</a> </audio>
+<p>музыка</p>
+<a class="btn" href="register_html.html">регистрация</a>
+<h1>НАЧАЛО</h1>
+<p>Внимание этот сайт не доделан все баги отправлять мне в дс</p>
+<p>Мой YouTube:https://www.youtube.com/@meower790</p>
+<p>imcotarya228</p>
+<p>*изменено 17.01.2024 и в intellij IDEA*</p>
+<h3>Новости</h3>
+<p>скоро может быть я добавлю javascript это наверное просто делать это очень сложно но если у меня будет время то тогда я смогу сделать javascript на сайте</p>
+<p>может быть будет больше обновлений</p>
+<p> начинается разработка нового интерфейса активировать его можно через изменения привязки css файла на devstyle.css !он сырой!</p>
+<p> <a class="btn" href="gamedownload/windows%20pptx.rar">скачать windows в powerpoint-е</a></p>
+<p> <a class="btn" href="gamedownload/minecraft%20pptx%20demo%20web.rar">скачать minecraft в powerpoint </a> </p>
+<a class="btn" href="about.html">О сайте</a>
+<h2>Регистрация</h2>
+<form>
+    <label for="username">Имя пользователя:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button onclick="register()">Зарегистрироваться</button>
+</form>
+
+<h2>Логин</h2>
+<form>
+    <label for="login_username">Имя пользователя:</label>
+    <input type="text" id="login_username" name="login_username" required>
+    <br>
+    <label for="login_password">Пароль:</label>
+    <input type="password" id="login_password" name="login_password" required>
+    <br>
+    <button onclick="login()">Войти</button>
+</form>
+
+<h1>Главная страница</h1>
+<p id="user_greeting"></p>
+
+<script>
+    function register() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        
+        // Отправляем данные на PHP скрипт для регистрации
+        fetch('register.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username: username, password: password }),
+        })
+        .then(response => response.text())
+        .then(message => alert(message));
+    }
+
+    function login() {
+        // Реализация входа
+        let username = document.getElementById("login_username").value;
+        document.getElementById("user_greeting").innerText = "Вы вошли как: " + username;
+    }
+</script>
+</body>
+</html>
